@@ -1,9 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, TextStyle } from 'react-native';
 
 import { Colors } from '../config';
 
-export const FormErrorMessage = ({ error, visible }) => {
+interface FormErrorMessageProps {
+  error: string;
+  visible: boolean;
+}
+
+export const FormErrorMessage: React.FC<FormErrorMessageProps> = ({ error, visible }: FormErrorMessageProps) => {
   if (!error || !visible) {
     return null;
   }
@@ -18,5 +23,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginVertical: 8,
     fontWeight: '600'
-  }
+  } as TextStyle
 });
